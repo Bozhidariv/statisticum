@@ -1,0 +1,9 @@
+{% extends "layout/default/base.html" %}
+{% load i18n static common_tags %}
+
+{% block content %} 
+<div class="">
+    <h3>{% trans category %}</h3>
+    {% include "games/listing.html" with games=games %}
+</div>
+{% endblock %}

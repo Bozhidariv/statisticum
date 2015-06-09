@@ -1,0 +1,34 @@
+{% load i18n common_tags static %}
+<table class="table table-fixed" width="100%">
+    <thead>
+        <tr>
+            <td class="col-xs-4">Title</td>
+            <td class="col-xs-1">Category</td>
+            <td class="col-xs-2">Player #1</td>
+            <td class="col-xs-2">Player #2</td>
+            <td class="col-xs-1">Date</td>
+            <td class="col-xs-5">Actions</td>
+        </tr>
+    </thead>
+    {% for game in games %}
+    <tr class="game">
+        <td>
+            <a href="{% url 'game_show' game.id %}">
+                {{game.title}}
+            </a>
+        </td>
+        <td>
+           {{ game.category }}
+        </td>
+        <td>
+            {{ game.first_player }}
+        </td>
+        <td> {{ game.second_player }}</td>
+        <td> {{ game.played_date|pretty_date }}</td>
+        <td> 
+            <a href="{% url 'game_edit' game.id %}">Edit</a> 
+            <a href="{% url 'game_add_score' game.id %}">Manage Score</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

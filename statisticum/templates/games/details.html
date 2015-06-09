@@ -1,0 +1,19 @@
+{% load i18n common_tags static %}
+<div class="game-details">
+  <div class="game-header">
+    <h1 class="game-title">{{ game.title }}</h1>
+    <span class="label label-info">{{game.played_date }}</span>
+    <hr/>
+    <div class="game-details">
+      <div>Category: {{ game.category }} </div>
+        <div>
+          <span>Player #1 -  {{ game.first_player }}</span>
+        </div>
+        <div>
+          <span>Player #2 - {{ game.second_player }}</span>
+        </div>
+        </div> 
+    </div>
+    <hr />
+    {% include "games/score_listing.html" with game=game scores=scores %}
+</div> 

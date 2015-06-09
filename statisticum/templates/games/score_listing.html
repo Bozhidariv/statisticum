@@ -1,0 +1,15 @@
+{% load i18n common_tags static %}
+ <table class="table table-fixed scores" width="100%">
+    <thead>
+        <tr>
+            <td class="col-xs-2">{{ game.first_player }}</td>
+            <td class="col-xs-2">{{ game.second_player }}</td>
+         </tr>
+    </thead>
+    {% for score in scores %}
+        <tr>
+            <td>{{ score.first_score }}</td>
+            <td>{{ score.second_score }}</td>
+        </tr>
+    {% endfor %}
+</table>

@@ -1,0 +1,26 @@
+{% extends "layout/default/base.html" %}
+{% load i18n common_tags static %}
+{% block content %} 
+ <div class="tabbable-panel">
+    <div class="tabbable-line">
+        <ul class="nav nav-tabs ">
+            <li class="active">
+                <a href="#tab_default_1" data-toggle="tab">Latest Games</a>
+            </li>
+            <li>
+                <a href="#tab_default_2" data-toggle="tab">Wins</a>
+            </li>
+            <li>
+                 <a href="#tab_default_3" data-toggle="tab">Losts</a>
+            </li>
+            <li>
+                <a href="#tab_default_3" data-toggle="tab">Draws</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <h4>Today {% now "F d" %}</h4>
+            {% include "games/listing.html" with games=games %}
+        </div>
+     </div>
+</div>
+{% endblock %}

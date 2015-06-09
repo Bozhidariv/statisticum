@@ -1,0 +1,17 @@
+{% extends "layout/default/base.html" %}
+{% load i18n common_tags static bootstrap %}
+{% block content %} 
+{% include "games/details.html" with game=game  %} 
+<form method='post' action='{{request.path}}'>
+  <fieldset>
+    <legend>Game Scores</legend>
+      {{ score.management_form }}
+      {% for form in score.forms %}
+        <div>{{ form|bootstrap }}</div>
+      {% endfor %}
+      
+    </fieldset>
+    <input title='Add a new game score' class="btn btn-success btn-outline" type='submit' name='add_score' value='Add' />
+    <input title='Submit' class="btn btn-success btn-outline" type='submit' name='submit' value='Submit' />
+</form>
+{% endblock %}
