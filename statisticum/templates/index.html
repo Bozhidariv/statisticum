@@ -5,16 +5,16 @@
     <div class="tabbable-line">
         <ul class="nav nav-tabs ">
             <li class="active">
-                <a href="#tab_default_1" data-toggle="tab">Latest Games</a>
+                <a href="{% url 'games_index' %}" data-toggle="tab">Latest Games</a>
             </li>
             <li>
-                <a href="#tab_default_2" data-toggle="tab">Wins</a>
+                <a href="{% url 'page_wins' %}" data-toggle="tab">Wins</a>
             </li>
             <li>
-                 <a href="#tab_default_3" data-toggle="tab">Losts</a>
+                 <a href="{% url 'page_losts' %}" data-toggle="tab">Losts</a>
             </li>
             <li>
-                <a href="#tab_default_3" data-toggle="tab">Draws</a>
+                <a href="{% url 'page_draws' %}" data-toggle="tab">Draws</a>
             </li>
         </ul>
         <div class="tab-content">

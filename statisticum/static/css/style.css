@@ -30,10 +30,7 @@ label .has-error {
     color:#f3565d;
 }
 
-.logo {
 
-  margin-top:22px;
-}
 .has-success .form-control:focus{
     box-shadow: none;
     border-color:#5cb85c;
@@ -154,9 +151,16 @@ Licensed under MIT
   padding-bottom: 0;
 }
 
-
+.job-content img {
+    height: 33px;
+    width: 33px;
+}
 .label {
     border-radius:0px;
+}
+
+#jobs-new-form > .form-group .label{
+   font-size:16px;
 }
 
 .form-control {
@@ -174,6 +178,193 @@ Licensed under MIT
   margin-bottom:10px;
 }
 
+.job-preview{
+   padding-top:50px;
+   padding-bottom:50px;
+}
+
+.job-title {
+   padding-top:15px;
+}
+
+.job-listing {
+
+}
+
+.job-listing td {
+  border-top:0px solid #fff !important;
+}
+
+.job-offer:hover {
+  background: #5ED86F;
+  color:#fff;
+}
+
+.job-offer:hover a{
+  color:#fff;
+}
+
+.job-offer h2 {
+  font-size: 1.0em;
+  margin-top:5px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.job-listing td {
+  padding: 0.75em;
+  padding-bottom: 0;
+  padding-top: 0;
+  text-align: left;
+  vertical-align: middle !important;
+  font-weight: 400;
+}
+
+.job-offer .logo {
+  border-radius: 10em;
+  background-size: 100%;
+  background-position: left center;
+  background-repeat: no-repeat;
+  width: 3em;
+  height: 3em;
+  margin: 0;
+  margin-right: 0.2em;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #f6f6f6;
+}
+
+.job-offer:hover .logo p {
+  background:#55C264;
+  color: #69F07B;
+  border-radius: 10em;
+}
+
+.job-offer .logo p {
+  color: #dad6d2;
+  font-weight: 600;
+  font-size: 1.5em;
+  margin: 0;
+  text-align: center;
+  line-height: 2em;
+  vertical-align: middle;
+}
+
+.job-listing .job-offer {
+  /*border-bottom:1px solid #ccc; */
+  padding:5px;
+}
+
+.job-listing .job-posted {
+   font-weight:bold;
+}
+
+.job-offer:hover .job-tags .btn-outline {
+  border:1px solid #fff;
+  color:#fff;
+  background:none;
+}
+
+.job-offer a {
+    color:#333;
+}
+
+.job-offer .job-tags .btn-outline {
+  font-weight:bold;
+  padding:4px;
+}
+
+
+
+.job-offer .job-apply button {
+  line-height: 2em;
+  vertical-align: middle;
+  background:#55C264;
+  color: #fff;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  border:none;
+  display:none;
+  padding:5px;
+}
+
+.job-offer:hover .job-apply button {
+  font-size:16px;
+  display:block;
+}
+
+.job-tags .label{
+  font-size:13px;
+}
+
+.job-category {
+  padding:6px;
+}
+
+
+.job-details {
+  padding:20px;
+  background:#fff;
+  position:relative;
+}
+
+.job-details h1{
+  font-size: 36px;
+  color: #222;
+  padding: 0;
+  margin: 0 0 7px 0;
+  font-weight: normal;
+  line-height: 1em;
+  font-family:"Sanchez",serif;
+}
+
+.job-details .posted{
+   padding:5px;
+   font-size:13px;
+   top:0px;
+   right:0px;
+   position:absolute;
+}
+
+
+.job-details .job-apply {
+  padding:15px;
+  margin-bottom:50px;
+  background:#f6f6f6;
+}
+
+
+.job-details .job-apply div {
+  margin-bottom:10px;
+  
+}
+
+.headquarters {
+  padding:2px;
+  font-size:15px;
+}
+
+.website {
+  padding: 2px;
+  font-size:15px;
+}
+
+.website a:hover {
+   background:#39c;
+   color:#fff;
+   padding:5px;
+}
+
+.job-description {
+  padding:15px;
+  padding-top:10px;
+}
+
+.company-details {
+  margin-top:40px;
+  margin-bottom:10px;
+}
 
 .btn-outline {
     background-color: transparent;
