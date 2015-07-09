@@ -1,0 +1,409 @@
+html {
+    background-color: #f5f6f7;
+    background-color: #eff3f6;
+    background-color: #fff;
+    position: relative;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: #fff;
+}
+
+
+.form-control:focus {
+    border-color: #999;
+    box-shadow: none;
+}
+
+.has-error .form-control:focus{
+    box-shadow: none;
+    /*border-color:#f3565d;*/
+}
+
+.has-error .form-control{
+    /*border-color:#f3565d;*/
+}
+
+label .has-error {
+    color:#f3565d;
+}
+
+
+.has-success .form-control:focus{
+    box-shadow: none;
+    border-color:#5cb85c;
+}
+
+.has-success .form-control{
+    box-shadow: none;
+    border-color:#5cb85c;
+}
+.btn-default {
+    background:#fff;
+}
+
+.navbar {
+    border: none;
+    border-bottom: 1px solid #d1d4d7;
+    box-shadow: 0 0 5px rgba(0,0,0,.1);
+    z-index: 1010;
+    border-radius: 0;
+    padding: 0;
+    margin-bottom: 0;
+    background:#fff;
+}
+
+
+
+.navbar-brand {
+    font-size: 28px;
+    min-width: 50px;
+    font-family: "Times New Roman",Georgia,serif;
+    font-style: italic;
+    font-weight: 700;
+    text-align: center;
+    background:#fff;
+}
+
+.navbar-header img {
+    max-height: 70px;
+    margin-left:30px;
+}
+
+.container {
+   max-width:900px;
+   margin:0 auto;
+   overflow:hidden;
+}
+
+#search-box {
+    top:10px;
+    min-width:380px;
+}
+
+#search-box .input-group{
+    width:100%;
+}
+
+/***
+Bootstrap Line Tabs by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+***/
+
+/* Tabs panel */
+.tabbable-panel {
+  padding: 10px;
+}
+
+/* Default mode */
+.tabbable-line > .nav-tabs {
+  border: none;
+  margin: 0px;
+}
+.tabbable-line > .nav-tabs > li {
+  margin-right: 2px;
+}
+.tabbable-line > .nav-tabs > li > a {
+  border: 0;
+  margin-right: 0;
+  color: #737373;
+  padding:10px 15px;
+}
+.tabbable-line > .nav-tabs > li > a > i {
+  color: #a6a6a6;
+}
+.tabbable-line > .nav-tabs > li.open, .tabbable-line > .nav-tabs > li:hover {
+  border-bottom: 4px solid #fbcdcf;
+}
+.tabbable-line > .nav-tabs > li.open > a, .tabbable-line > .nav-tabs > li:hover > a {
+  border: 0;
+  background: none !important;
+  color: #333333;
+}
+.tabbable-line > .nav-tabs > li.open > a > i, .tabbable-line > .nav-tabs > li:hover > a > i {
+  color: #a6a6a6;
+}
+.tabbable-line > .nav-tabs > li.open .dropdown-menu, .tabbable-line > .nav-tabs > li:hover .dropdown-menu {
+  margin-top: 0px;
+}
+.tabbable-line > .nav-tabs > li.active {
+  border-bottom: 4px solid #f3565d;
+  position: relative;
+}
+.tabbable-line > .nav-tabs > li.active > a {
+  border: 0;
+  color: #333333;
+}
+.tabbable-line > .nav-tabs > li.active > a > i {
+  color: #404040;
+}
+.tabbable-line > .tab-content {
+  margin-top: -3px;
+  background-color: #fff;
+  border: 0;
+  border-top: 1px solid #eee;
+  padding: 15px 0;
+}
+.portlet .tabbable-line > .tab-content {
+  padding-bottom: 0;
+}
+
+.job-content img {
+    height: 33px;
+    width: 33px;
+}
+.label {
+    border-radius:0px;
+}
+
+#jobs-new-form > .form-group .label{
+   font-size:16px;
+}
+
+.form-control {
+    border-radius:0px;
+}
+.label-default {
+    background-color: #ccc;
+}
+
+.label-info {
+    background-color: #5cb85c ;
+}
+
+.selectpicker{
+  margin-bottom:10px;
+}
+
+.job-preview{
+   padding-top:50px;
+   padding-bottom:50px;
+}
+
+.job-title {
+   padding-top:15px;
+}
+
+.job-listing {
+
+}
+
+.job-listing td {
+  border-top:0px solid #fff !important;
+}
+
+.job-offer:hover {
+  background: #5ED86F;
+  color:#fff;
+}
+
+.job-offer:hover a{
+  color:#fff;
+}
+
+.job-offer h2 {
+  font-size: 1.0em;
+  margin-top:5px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.job-listing td {
+  padding: 0.75em;
+  padding-bottom: 0;
+  padding-top: 0;
+  text-align: left;
+  vertical-align: middle !important;
+  font-weight: 400;
+}
+
+.job-offer .logo {
+  border-radius: 10em;
+  background-size: 100%;
+  background-position: left center;
+  background-repeat: no-repeat;
+  width: 3em;
+  height: 3em;
+  margin: 0;
+  margin-right: 0.2em;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #f6f6f6;
+}
+
+.job-offer:hover .logo p {
+  background:#55C264;
+  color: #69F07B;
+  border-radius: 10em;
+}
+
+.job-offer .logo p {
+  color: #dad6d2;
+  font-weight: 600;
+  font-size: 1.5em;
+  margin: 0;
+  text-align: center;
+  line-height: 2em;
+  vertical-align: middle;
+}
+
+.job-listing .job-offer {
+  /*border-bottom:1px solid #ccc; */
+  padding:5px;
+}
+
+.job-listing .job-posted {
+   font-weight:bold;
+}
+
+.job-offer:hover .job-tags .btn-outline {
+  border:1px solid #fff;
+  color:#fff;
+  background:none;
+}
+
+.job-offer a {
+    color:#333;
+}
+
+.job-offer .job-tags .btn-outline {
+  font-weight:bold;
+  padding:4px;
+}
+
+
+
+.job-offer .job-apply button {
+  line-height: 2em;
+  vertical-align: middle;
+  background:#55C264;
+  color: #fff;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  border:none;
+  display:none;
+  padding:5px;
+}
+
+.job-offer:hover .job-apply button {
+  font-size:16px;
+  display:block;
+}
+
+.job-tags .label{
+  font-size:13px;
+}
+
+.job-category {
+  padding:6px;
+}
+
+
+.job-details {
+  padding:20px;
+  background:#fff;
+  position:relative;
+}
+
+.job-details h1{
+  font-size: 36px;
+  color: #222;
+  padding: 0;
+  margin: 0 0 7px 0;
+  font-weight: normal;
+  line-height: 1em;
+  font-family:"Sanchez",serif;
+}
+
+.job-details .posted{
+   padding:5px;
+   font-size:13px;
+   top:0px;
+   right:0px;
+   position:absolute;
+}
+
+
+.job-details .job-apply {
+  padding:15px;
+  margin-bottom:50px;
+  background:#f6f6f6;
+}
+
+
+.job-details .job-apply div {
+  margin-bottom:10px;
+  
+}
+
+.headquarters {
+  padding:2px;
+  font-size:15px;
+}
+
+.website {
+  padding: 2px;
+  font-size:15px;
+}
+
+.website a:hover {
+   background:#39c;
+   color:#fff;
+   padding:5px;
+}
+
+.job-description {
+  padding:15px;
+  padding-top:10px;
+}
+
+.company-details {
+  margin-top:40px;
+  margin-bottom:10px;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn .btn-outline{
+  color:inherit !important;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+    color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+    color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+    color: #d9534f;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: #fff;
+}
+
+footer {
+    background-color: #f5f6f7;
+}
