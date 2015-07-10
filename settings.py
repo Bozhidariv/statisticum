@@ -3,7 +3,6 @@
 from __future__ import absolute_import
 import os,logging
 from django.utils.translation import ugettext_lazy as trans
-import django
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -25,7 +24,6 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'OPTIONS': "init_command": "SET storage_engine=MyISAM",
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'statisticum',              # Or path to database file if using sqlite3.
         'USER': 'root',                      # Not used with sqlite3.
@@ -107,7 +105,6 @@ STATICFILES_FINDERS = (
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '#$49+_p6#x7g3zw3=@xr)=bq)i9qof##r1-7)u5%il-ya=yf&('
-django.setup()
 #if DEBUG:
 TEMPLATE_LOADERS = [
     'django.template.loaders.filesystem.Loader',
@@ -168,14 +165,14 @@ LOCALE_PATHS = (os.path.join(PROJECT_ROOT, 'locale'), )
 
 INSTALLED_APPS = (
 	#'redis_cache',
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'common',
-    'games',
+    'django.contrib.humanize',
+    'statisticum.common',
+    'statisticum.games',
     'bootstrapform',
     'registration'
 )
@@ -224,7 +221,7 @@ DEV_MEDIA_URL = STATIC_URL
 
 ACCOUNT_ACTIVATION_DAYS = 2
 ACCOUNT_ACTIVATION_SEND = False
-AUTH_PROFILE_MODULE = 'common.UserProfile'
+AUTH_PROFILE_MODULE = 'statisticum.common.UserProfile'
 
 #CACHES = {
 #    'default': {

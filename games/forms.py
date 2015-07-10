@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from games.models import Game, GameScore
+from statisticum.games.models import Game, GameScore
 from django.forms.models import inlineformset_factory
 
 

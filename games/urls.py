@@ -2,15 +2,15 @@ from django.conf.urls import *
 from django.conf import settings
 from django.contrib.auth import views as auth_views
 
-from games.views import index
-from games.views import show
-from games.views import add
-from games.views import edit
-from games.views import add_score
+from statisticum.games.views import index
+from statisticum.games.views import show
+from statisticum.games.views import add
+from statisticum.games.views import edit
+from statisticum.games.views import add_score
 #from statisticum.games.views import preview
-from games.views import wins
-from games.views import losts
-from games.views import draws
+from statisticum.games.views import wins
+from statisticum.games.views import losts
+from statisticum.games.views import draws
 
 urlpatterns = patterns('',
 	url(r'^$',index,name='games_index'),

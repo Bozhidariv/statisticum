@@ -22,8 +22,8 @@ from statisticum.games import views
 
 urlpatterns = patterns('',
     url(r'^$', views.index),
-    (r'^games/', include('games.urls')),
-    (r'^accounts/', include('registration.backends.default.urls')),
+    (r'^games/', include('statisticum.games.urls')),
+    (r'^accounts/', include('registration.backends.simple.urls')),
     
 )
 
