@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.conf import settings
 
 from statisticum.games import views
-
+from statisticum.profiles import views
 
 urlpatterns = patterns('',
     url(r'^$', views.index),
     (r'^games/', include('statisticum.games.urls')),
+    (r'^profiles/', include('statisticum.profiles.urls')),
     (r'^accounts/', include('registration.backends.simple.urls')),
+   
     
 )
 

@@ -1,7 +1,7 @@
 # -*- encoding: UTF-8 -*-
 # Django settings for places project.
 from __future__ import absolute_import
-import os,logging
+import os,sys,logging
 from django.utils.translation import ugettext_lazy as trans
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -168,13 +168,16 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'statisticum.common',
     'statisticum.games',
+    'statisticum.profiles',
     'bootstrapform',
-    'registration'
+    'registration',
+    'coverage'
 )
 
 
@@ -236,3 +239,11 @@ SESSION_REDIS_PORT = 6379
 SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
+if 'test' in sys.argv:
+    DATABASES = {
+        'default':{
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': ':memory:',
+        },
+    }

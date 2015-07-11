@@ -1,7 +1,15 @@
-Django==1.8.2
-django-bootstrap-form==3.2
-django-redis-sessions==0.4.0
-mysql-connector-python==2.0.3
-mysqlclient==1.3.6
-redis==2.10.3
-virtualenv==13.0.3
+**Install**
+    pip install <app==version>
+    Django==1.8.2
+    django-bootstrap-form==3.2
+    django-redis-sessions==0.4.0
+    django-registration-redux==1.2
+    mysql-connector-python==2.0.3
+    mysqlclient==1.3.6
+    redis==2.10.3
+    virtualenv==13.0.3
+
+
+
+**Downlaod redis:**
+    http://redis.io/download

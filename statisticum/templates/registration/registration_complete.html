@@ -1,10 +1,27 @@
 {% extends "layout/default/base.html" %}
-{% load i18n %}
-
-{% block title %}{% trans "Activation email sent" %}{% endblock %}
-
+{% load  bootstrap  %}
 {% block content %}
-<p>{% trans "Please check your email to complete the registration process." %}</p>
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p>Please login to see this page.</p>
+    {% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+{% csrf_token %}
+{{ form|bootstrap}}
+<input type="submit" value="login" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+
+
 {% endblock %}
-
-

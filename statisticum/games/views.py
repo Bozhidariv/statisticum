@@ -7,19 +7,17 @@ from django.contrib.auth.decorators import login_required
 from statisticum.games.models import Game, GameScore
 from statisticum.games.forms import GameForm, GameScoreForm, AddGameScoreFormset
 
-@login_required()
 def index(request, template="games/index.html"):
     if not request.user.is_authenticated():
-        template = "landing.html"
-        return render_to_response(template, {}, context_instance=RequestContext(request))
-    try:
-        if request.user.is_authenticated():
-            player_id = request.user  
-            first_win = 1
-            first_lose = 2
+        template = 'landing.html'
+        return render_to_response(template, context_instance=RequestContext(request))
 
-        games = Game.objects.filter(Q(first_player=player_id) |
-            Q(second_player=player_id))
+    try:
+        player_id = request.user  
+        first_win = 1
+        first_lose = 2
+
+        games = Game.objects.filter(Q(first_player=player_id) | Q(second_player=player_id))
     except Game.DoesNotExist:
         raise Http404
     return render_to_response(template, {'games': games}, context_instance=RequestContext(request))

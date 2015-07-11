@@ -17,7 +17,6 @@ urlpatterns = patterns('',
     url(r'^add/$',add,name='games_add'),
     url(r'^show/(?P<id>\w+)/',show,name='game_show'),
     url(r'^edit/(?P<id>\w+)/',edit,name='game_edit'),
-   
     url(r'^add/score/(?P<id>\w+)/',add_score,name='game_add_score'),
     url(r'^wins/',wins,name='page_wins'),
     url(r'^losts/',losts,name='page_losts'),
