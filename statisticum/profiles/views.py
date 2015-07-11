@@ -24,7 +24,7 @@ def index(request, template="games/index.html"):
     return render_to_response(template, {'games': games}, context_instance=RequestContext(request))
 
 @login_required()
-def add(request, template="profile/profile.html"):
+def add(request, template="profiles/profile.html"):
 
     if request.method == 'POST':
         form = ProfileForm(request.POST)
@@ -48,20 +48,20 @@ def add(request, template="profile/profile.html"):
   #  return render_to_response(template, {'game': game, 'scores': scores}, context_instance=RequestContext(request))
 
 @login_required()
-def edit(request, id, template="profile/profile.html"):
+def edit(request, id, template="profiles/profile.html"):
     try:
-        form = Profile.objects.get(id=id)
+        profile = Profile.objects.get(id=id)
     except Profile.DoesNotExist:
         raise Http404
 
     if request.method == 'POST':
-        form = ProfileForm(request.POST, instance=game)
+        form = ProfileForm(request.POST, instance=profile)
 
         if form.is_valid():
             form.save()
             return redirect('games_index')
     else:
-        form = ProfileForm(instance=game)
+        form = ProfileForm(instance=profile)
 
     return render_to_response(template, {'form': form}, context_instance=RequestContext(request))
 

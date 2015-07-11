@@ -176,8 +176,8 @@ INSTALLED_APPS = (
     'statisticum.games',
     'statisticum.profiles',
     'bootstrapform',
-    'registration',
-    'coverage'
+    'registration'
+    
 )
 
 
