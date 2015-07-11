@@ -1,11 +1,26 @@
 {% extends "layout/default/base.html" %}
 {% load i18n static bootstrap  %}
-
-
+{% load i18n common_tags static %}
+{% load i18n common_tags static %}
 {% block content %}
-<div>
-    {{profile.score}}
-    {{profile.user.first_name}}
-    {{profile.user.last_name}}
-</div>
+
+
+<div class="game-details">
+  <div class="game-header">
+    <h1 class="game-title">{{ game.first_player.get_full_name }} account</h1>
+    <hr/>
+    <div class="game-details">
+        <div>
+          <span>First name: {{profile.user.first_name}}</span>
+        </div>
+        <div>
+          <span>Last name : {{profile.user.last_name}}</span>
+        </div>
+        </div> 
+    </div>
+    <hr />
+    
+</div> 
 {% endblock %}
+
+
