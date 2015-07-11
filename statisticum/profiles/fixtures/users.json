@@ -1,0 +1,38 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "date_joined": "2015-07-11T08:41:11Z",
+            "password": "21232f297a57a5a743894a0e4a801fc3",
+            "first_name": "Ivan",
+            "is_active": true,
+            "email": "admin@statisticum.com",
+            "is_staff": true,
+            "user_permissions": [],
+            "username": "admin",
+            "last_login": "2015-07-11T08:42:26Z",
+            "groups": [],
+            "last_name": "Petrov",
+            "is_superuser": true
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "date_joined": "2015-07-11T08:46:52Z",
+            "password": "ca3ea3e7b7ae2f8ca72c106d8ef30d10",
+            "first_name": "Bozhidar",
+            "is_active": true,
+            "email": "bojidariv@gmail.com",
+            "is_staff": false,
+            "user_permissions": [],
+            "username": "bozhidar",
+            "last_login": "2015-07-11T08:46:52Z",
+            "groups": [],
+            "last_name": "Ivanov",
+            "is_superuser": false
+        }
+    }
+]

@@ -14,11 +14,9 @@ register = template.Library()
 def share_twitter(item):
     return "https://twitter.com/intent/tweet?text="+item.title+" - &url="
 
-
 @register.filter("share_facebook")
 def share_facebook(item):
     return "https://www.facebook.com/sharer/sharer.php?u=" 
-
 
 @register.filter("share_linkedin")
 def share_linkedin(item):
@@ -29,11 +27,9 @@ def share_linkedin(item):
 def slugify(text):
     return slughifi(text)
 
-
 @register.filter("title")
 def title(title):
     return re.sub("[\(\[].*?[\)\]]", "", title)
-
 
 @register.filter("game_url")
 def game_url(game):
@@ -44,6 +40,10 @@ def game_url(game):
                 result = result + " " + param
     return slughifi(result)
 
+@register.filter("first_letters")
+def first_letters(text,limit=2):
+    letters = [word[0].upper() for word in text.split()][:limit]
+    return "".join(letters)
 
 @register.filter("pretty_date")
 def pretty_date(time,short=True):

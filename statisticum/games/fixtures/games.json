@@ -1,0 +1,170 @@
+[
+    {
+        "model": "games.game",
+        "pk": 1,
+        "fields": {
+            "category": 1,
+            "played_date": "2015-07-11T11:48:00Z",
+            "status": 2,
+            "title": "Tennis match # 1",
+            "first_player": 1,
+            "second_player": 2
+        }
+    },
+    {
+        "model": "games.game",
+        "pk": 2,
+        "fields": {
+            "category": 1,
+            "played_date": "2015-07-11T12:58:21Z",
+            "status": 3,
+            "title": "Tennis match # 2",
+            "first_player": 1,
+            "second_player": 2
+        }
+    },
+    {
+        "model": "games.game",
+        "pk": 3,
+        "fields": {
+            "category": 1,
+            "played_date": "2015-07-11T12:58:31Z",
+            "status": 1,
+            "title": "Tennis match # 3",
+            "first_player": 1,
+            "second_player": 2
+        }
+    },
+    {
+        "model": "games.game",
+        "pk": 4,
+        "fields": {
+            "category": 1,
+            "played_date": "2015-07-11T12:58:38Z",
+            "status": 1,
+            "title": "Tennis match # 4",
+            "first_player": 1,
+            "second_player": 2
+        }
+    },
+    {
+        "model": "games.game",
+        "pk": 5,
+        "fields": {
+            "category": 1,
+            "played_date": "2015-07-11T12:58:48Z",
+            "status": 3,
+            "title": "Tennis match # 5",
+            "first_player": 1,
+            "second_player": 2
+        }
+    },
+    {
+        "model": "games.game",
+        "pk": 6,
+        "fields": {
+            "category": 1,
+            "played_date": "2015-07-11T12:58:58Z",
+            "status": 3,
+            "title": "Tennis match # 6",
+            "first_player": 2,
+            "second_player": 1
+        }
+    },
+    {
+        "model": "games.game",
+        "pk": 7,
+        "fields": {
+            "category": 2,
+            "played_date": "2015-07-11T12:59:20Z",
+            "status": 1,
+            "title": "Tennis match # 7",
+            "first_player": 1,
+            "second_player": 2
+        }
+    },
+    {
+        "model": "games.gamescore",
+        "pk": 1,
+        "fields": {
+            "game": 1,
+            "first_score": 3,
+            "first_player": 1,
+            "second_score": 6,
+            "second_player": 2,
+            "played_time": 5
+        }
+    },
+    {
+        "model": "games.gamescore",
+        "pk": 2,
+        "fields": {
+            "game": 1,
+            "first_score": 4,
+            "first_player": 1,
+            "second_score": 6,
+            "second_player": 2,
+            "played_time": 6
+        }
+    },
+    {
+        "model": "games.gamescore",
+        "pk": 3,
+        "fields": {
+            "game": 1,
+            "first_score": 6,
+            "first_player": 1,
+            "second_score": 7,
+            "second_player": 2,
+            "played_time": 6
+        }
+    },
+    {
+        "model": "games.gamescore",
+        "pk": 4,
+        "fields": {
+            "game": 1,
+            "first_score": 5,
+            "first_player": 1,
+            "second_score": 7,
+            "second_player": 2,
+            "played_time": 4
+        }
+    },
+    {
+        "model": "games.gamescore",
+        "pk": 5,
+        "fields": {
+            "game": 1,
+            "first_score": 4,
+            "first_player": 1,
+            "second_score": 6,
+            "second_player": 2,
+            "played_time": 6
+        }
+    },
+    {
+        "model": "games.gamescore",
+        "pk": 6,
+        "fields": {
+            "game": 1,
+            "first_score": 6,
+            "first_player": 1,
+            "second_score": 7,
+            "second_player": 2,
+            "played_time": 6
+        }
+    },
+    {
+        "model": "games.gamescore",
+        "pk": 7,
+        "fields": {
+            "game": 1,
+            "first_score": 5,
+            "first_player": 1,
+            "second_score": 7,
+            "second_player": 2,
+            "played_time": 4
+        }
+    }
+]

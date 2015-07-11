@@ -32,6 +32,8 @@ class Game(models.Model):
         (CHESS, 'chess'),
     )
 
+    CATEGORIES_NAMES = dict((x, y) for x, y in CATEGORIES)
+
     NONE = 0,
     FIRST_WIN = 1
     FIRST_LOSE = 2
@@ -52,6 +54,9 @@ class Game(models.Model):
     played_date = models.DateTimeField(default = datetime.datetime.now,blank=True)
     
     objects = GameManager()
+
+    def category_name(self):
+        return Game.CATEGORIES_NAMES.get(self.category)
 
     class Meta:
         db_table = 'games'

@@ -1,4 +1,4 @@
-**Install**
+Install
     pip install <app==version>
     Django==1.8.2
     django-bootstrap-form==3.2
@@ -11,5 +11,5 @@
 
 
 
-**Downlaod redis:**
+Downlaod redis:
     http://redis.io/download

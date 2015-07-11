@@ -16,9 +16,12 @@ User.set_password = set_user_password
 
 class UserProfile(models.Model):
     
+    GENDER_MALE = 1
+    GERNDER_FEMALE = 2
+
     GENDERS = (
-        (1,'male'), 
-        (2,'famale')
+        (GENDER_MALE,'male'), 
+        (GERNDER_FEMALE,'famale')
     )
     
     DEFAULT_PROFILE_IMAGE = "profile/avatar.gif"

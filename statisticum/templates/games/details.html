@@ -5,7 +5,7 @@
     <span class="label label-info">{{game.played_date }}</span>
     <hr/>
     <div class="game-details">
-      <div>Category: {{ game.category }}</div>
+      <div>Category: {{ game.category_name }}</div>
       <div>
         <span>
           Player #1 -
@@ -18,8 +18,14 @@
           <a href="{%  url 'profile_show' game.second_player.id %}">{{ game.second_player }}</a>
         </span>
       </div>
+      <div>
+        <span>
+          <a href="share_facebook">Share in facebook</a>
+        </span>
+      </div>''
     </div>
   </div>
   <hr />
+
   {% include "games/score_listing.html" with game=game scores=scores %}
 </div>
