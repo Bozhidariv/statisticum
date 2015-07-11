@@ -5,7 +5,7 @@ import re
 from django.test import TestCase
 
 from statisticum.games.models import Game, GameScore
-
+from statisticum.profiles.models import UserProfile
 class UserModelTests(TestCase):
 
     user_info = {'username': 'Bozhidar',
