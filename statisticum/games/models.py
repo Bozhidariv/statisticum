@@ -2,10 +2,25 @@ import os,hashlib
 import datetime
 
 from django.db import models
+from django.db.models import Q
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import connection
 
+
+class GameManager(models.Manager):
+
+    def wins(self, player):
+        return Game.objects.filter((Q(first_player=player) & Q(status=Game.FIRST_WIN)) | (
+            Q(second_player=player) & Q(status=Game.FIRST_LOSE)))
+
+    def losts(self, player):
+        return Game.objects.filter((Q(first_player=player) & Q(status=Game.FIRST_LOSE)) | (
+            Q(second_player=player) & Q(status=Game.FIRST_WIN)))
+
+    def draws(self, player):
+        return Game.objects.filter((Q(first_player=player) & Q(status=Game.DRAW)) |
+                                    (Q(second_player=player) & Q(status=Game.DRAW)))
 
 class Game(models.Model):
 
@@ -36,6 +51,8 @@ class Game(models.Model):
     second_player =  models.ForeignKey(User,related_name='%(class)s_second')
     played_date = models.DateTimeField(default = datetime.datetime.now,blank=True)
     
+    objects = GameManager()
+
     class Meta:
         db_table = 'games'
 

@@ -1,26 +1,43 @@
 {% extends "layout/default/base.html" %}
 {% load i18n static bootstrap  %}
 {% load i18n common_tags static %}
-{% load i18n common_tags static %}
 {% block content %}
-
-
 <div class="game-details">
-  <div class="game-header">
-    <h1 class="game-title">{{ game.first_player.get_full_name }} account</h1>
-    <hr/>
-    <div class="game-details">
-        <div>
-          <span>First name: {{profile.user.first_name}}</span>
+    <div class="game-header">
+        <h1 class="game-title">{{ profile.user}} </h1>
+        <hr/>
+        <div class="game-details">
+            <div>
+                <span>First name: {{profile.user.first_name}}</span>
+            </div>
+            <div>
+                <span>Last name : {{profile.user.last_name}}</span>
+            </div>
+
+
         </div>
-        <div>
-          <span>Last name : {{profile.user.last_name}}</span>
-        </div>
-        </div> 
     </div>
     <hr />
-    
-</div> 
+     
+
+<table class="table table-fixed" width="100%">
+    <thead>
+        <tr>
+            <td class="col-xs-4">Wins</td>
+            <td class="col-xs-1">Losts</td>
+            <td class="col-xs-2">Draws</td>
+            <td class="col-xs-2">Accuracy</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ wins }}</td>
+            <td>{{ losts }}</td>
+            <td>{{ draws }}</td>
+            <td>{{ accuracy|floatformat }} %</td>
+        </tr>    
+    </tbody>
+     
+</table>
+</div>
 {% endblock %}
-
-

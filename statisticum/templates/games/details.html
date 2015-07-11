@@ -5,15 +5,21 @@
     <span class="label label-info">{{game.played_date }}</span>
     <hr/>
     <div class="game-details">
-      <div>Category: {{ game.category }} </div>
-        <div>
-          <span>Player #1 -  {{ game.first_player }}</span>
-        </div>
-        <div>
-          <span>Player #2 - {{ game.second_player }}</span>
-        </div>
-        </div> 
+      <div>Category: {{ game.category }}</div>
+      <div>
+        <span>
+          Player #1 -
+          <a href="{%  url 'profile_show' game.first_player.id %}">{{ game.first_player }}</a>
+        </span>
+      </div>
+      <div>
+        <span>
+          Player #2 -
+          <a href="{%  url 'profile_show' game.second_player.id %}">{{ game.second_player }}</a>
+        </span>
+      </div>
     </div>
-    <hr />
-    {% include "games/score_listing.html" with game=game scores=scores %}
-</div> 
+  </div>
+  <hr />
+  {% include "games/score_listing.html" with game=game scores=scores %}
+</div>

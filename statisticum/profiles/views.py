@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, Http404
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
+from statisticum.games.models import Game
 from statisticum.profiles.models import UserProfile
 from statisticum.profiles.forms import UserProfileForm
 
@@ -15,7 +16,15 @@ def show(request,id, template="profiles/show.html"):
     except UserProfile.DoesNotExist:
         raise Http404
 
-    return render_to_response(template, {'profile': profile}, context_instance=RequestContext(request))
+    player = profile.user  
+    wins = Game.objects.wins(player).count()
+    losts =  Game.objects.losts(player).count()
+    draws = Game.objects.draws(player).count()
+    accuracy = wins / (wins + losts + draws) * 100
+
+    return render_to_response(template, 
+        {'profile': profile,'wins':wins , 'losts':losts,'draws':draws , 'accuracy':accuracy},
+         context_instance=RequestContext(request))
 
 @login_required()
 def edit(request, template="profiles/edit.html"):
