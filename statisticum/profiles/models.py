@@ -5,23 +5,33 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import connection
+from django.db.models.signals import post_save
 
+def set_user_password(user,password):
+    if user and password:
+        password = password.encode("utf-8")
+        user.password = hashlib.md5(password).hexdigest()
 
-class Profile(models.Model):
+User.set_password = set_user_password
 
-   
+class UserProfile(models.Model):
+    
     GENDERS = (
         (1,'male'), 
         (2,'famale')
     )
     
-    first_name = models.CharField(max_length=255,blank=False, null=False)
-    last_name = models.CharField(max_length=255,blank=False, null=False)
-    gender = models.IntegerField(choices=GENDERS,blank=False )
-    residence = models.CharField(max_length=255,blank=False, null=False)
-    score = models.IntegerField(default=0)
-
+    DEFAULT_PROFILE_IMAGE = "profile/avatar.gif"
+    
+    user = models.ForeignKey(User)   
+    gender = models.IntegerField(choices=GENDERS,blank=True,null=True )
+  
     class Meta:
         db_table = 'profiles'
-    
-   
+
+
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        profile, created = UserProfile.objects.get_or_create(user=instance)
+
+post_save.connect(create_user_profile, sender=User)

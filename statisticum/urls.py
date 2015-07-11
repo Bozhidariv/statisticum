@@ -18,7 +18,6 @@ from django.contrib import admin
 from django.conf import settings
 
 from statisticum.games import views
-from statisticum.profiles import views
 
 urlpatterns = patterns('',
     url(r'^$', views.index),

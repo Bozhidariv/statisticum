@@ -21,9 +21,11 @@
            {{ game.category }}
         </td>
         <td>
-            {{ game.first_player }}
+            <a href="{%  url 'profile_show' game.first_player.id %}">{{ game.first_player.get_full_name }}</a>
         </td>
-        <td> {{ game.second_player }}</td>
+        <td> 
+             <a href="{%  url 'profile_show' game.second_player.id %}">{{ game.second_player.get_full_name }}</a>
+        </td>
         <td> {{ game.played_date|pretty_date }}</td>
         <td> 
             <a href="{% url 'game_edit' game.id %}">Edit</a> 

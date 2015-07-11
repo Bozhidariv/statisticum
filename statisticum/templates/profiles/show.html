@@ -1,0 +1,11 @@
+{% extends "layout/default/base.html" %}
+{% load i18n static bootstrap  %}
+
+
+{% block content %}
+<div>
+    {{profile.score}}
+    {{profile.user.first_name}}
+    {{profile.user.last_name}}
+</div>
+{% endblock %}

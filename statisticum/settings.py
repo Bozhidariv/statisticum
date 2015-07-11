@@ -25,11 +25,14 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'statisticum',              # Or path to database file if using sqlite3.
-        'USER': 'root',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
+        'NAME': 'statisticum',                # Or path to database file if using sqlite3.
+        'USER': 'root',                       # Not used with sqlite3.
+        'PASSWORD': '',                       # Not used with sqlite3.
         'HOST': DB_HOST,                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': 3306,                      # Set to empty string for default. Not used with sqlite3.
+        'PORT': 3306,
+        'OPTIONS': {
+           "init_command": "SET storage_engine=MyISAM",
+        }                  
     }
 }
 
@@ -224,7 +227,7 @@ DEV_MEDIA_URL = STATIC_URL
 
 ACCOUNT_ACTIVATION_DAYS = 2
 ACCOUNT_ACTIVATION_SEND = False
-AUTH_PROFILE_MODULE = 'statisticum.common.UserProfile'
+AUTH_PROFILE_MODULE = 'statisticum.profiles.UserProfile'
 
 #CACHES = {
 #    'default': {
