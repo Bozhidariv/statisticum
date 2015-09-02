@@ -1,7 +1,9 @@
 # -*- encoding: UTF-8 -*-
 # Django settings for places project.
 from __future__ import absolute_import
-import os,sys,logging
+import os
+import sys
+import logging
 from django.utils.translation import ugettext_lazy as trans
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -24,15 +26,15 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'statisticum',                # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'statisticum',
         'USER': 'root',                       # Not used with sqlite3.
         'PASSWORD': '',                       # Not used with sqlite3.
-        'HOST': DB_HOST,                      # Set to empty string for localhost. Not used with sqlite3.
+        'HOST': DB_HOST,
         'PORT': 3306,
         'OPTIONS': {
-           "init_command": "SET storage_engine=MyISAM",
-        }                  
+            "init_command": "SET storage_engine=MyISAM",
+        }
     }
 }
 
@@ -50,7 +52,7 @@ LOGOUT_REDIRECT_URL = '/'
 # system time zone.
 TIME_ZONE = 'UTC'
 
-USE_TZ = True 
+USE_TZ = True
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
@@ -95,7 +97,6 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    
 )
 
 # List of finder classes that know how to find static files in
@@ -103,26 +104,19 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '#$49+_p6#x7g3zw3=@xr)=bq)i9qof##r1-7)u5%il-ya=yf&('
-#if DEBUG:
+
 TEMPLATE_LOADERS = [
     'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',      
+    'django.template.loaders.app_directories.Loader',
 ]
-#else:
-    #TEMPLATE_LOADERS = [
-    #    ('django.template.loaders.cached.Loader',(
-    #        'django.template.loaders.filesystem.Loader',
-    #        'django.template.loaders.app_directories.Loader',
-    #    )),
-    #]
 
-DEFAULT_LOCALE_ENCODING='utf-8'
-DEFAULT_CHARSET='utf-8'
+
+DEFAULT_LOCALE_ENCODING = 'utf-8'
+DEFAULT_CHARSET = 'utf-8'
 
 LANGUAGES = (
     ('en', trans('English')),
@@ -130,14 +124,11 @@ LANGUAGES = (
 )
 
 MIDDLEWARE_CLASSES = (
-    #'django_hosts.middleware.HostsMiddleware',
-    #'autoload.middleware.AutoloadMiddleware',
+
     'django.middleware.gzip.GZipMiddleware',
-    #'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-	'django.middleware.common.CommonMiddleware',
-    #'django.middleware.cache.FetchFromCacheMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
 )
@@ -146,28 +137,23 @@ ROOT_URLCONF = 'statisticum.urls'
 DEFAULT_HOST = 'default'
 SESSION_COOKIE_DOMAIN = ".statisticum.com"
 
-DEFAULT_TEMPLATE_DIR =  os.path.join(SITE_ROOT, "templates")
+DEFAULT_TEMPLATE_DIR = os.path.join(SITE_ROOT, "templates")
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    DEFAULT_TEMPLATE_DIR, 
+    DEFAULT_TEMPLATE_DIR,
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.request',
     'django.core.context_processors.static',
-	'django.core.context_processors.i18n',
+    'django.core.context_processors.i18n',
 )
-
 
 
 LOCALE_PATHS = (os.path.join(PROJECT_ROOT, 'locale'), )
 
 INSTALLED_APPS = (
-	#'redis_cache',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -180,13 +166,11 @@ INSTALLED_APPS = (
     'statisticum.profiles',
     'bootstrapform',
     'registration'
-    
+
 )
 
 
 AUTHENTICATION_BACKENDS = (
-    #'social_auth.backends.facebook.FacebookBackend',
-    #'social_auth.backends.twitter.TwitterBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -215,7 +199,6 @@ MEDIA_GENERATORS = (
     'mediagenerator.generators.bundles.Bundles',
     'mediagenerator.generators.manifest.Manifest',
 )
-#'http://www.statisticum.com:1000/'
 
 
 MEDIA_DEV_MODE = True
@@ -229,23 +212,16 @@ ACCOUNT_ACTIVATION_DAYS = 2
 ACCOUNT_ACTIVATION_SEND = False
 AUTH_PROFILE_MODULE = 'statisticum.profiles.UserProfile'
 
-#CACHES = {
-#    'default': {
-#        'BACKEND': 'redis_cache.RedisCache',
-#        'LOCATION': REDIS_HOST + ':6379',
-#    }
-#}
-
 SESSION_ENGINE = 'redis_sessions.session'
 SESSION_REDIS_HOST = REDIS_HOST
 SESSION_REDIS_PORT = 6379
-SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 if 'test' in sys.argv:
     DATABASES = {
-        'default':{
+        'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': ':memory:',
         },

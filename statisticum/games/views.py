@@ -5,20 +5,26 @@ from django.http import HttpResponseRedirect, Http404
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from statisticum.games.models import Game, GameScore
-from statisticum.games.forms import GameForm, GameScoreForm, AddGameScoreFormset
+from statisticum.games.forms import GameForm
+from statisticum.games.forms import AddGameScoreFormset
+from statisticum.games.forms import GameScoreForm
+
 
 def index(request, template="games/index.html"):
     if not request.user.is_authenticated():
         template = 'landing.html'
-        return render_to_response(template, context_instance=RequestContext(request))
+        return render_to_response(template,
+                                  context_instance=RequestContext(request))
 
     try:
         player_id = request.user
 
-        games = Game.objects.filter(Q(first_player=player_id) | Q(second_player=player_id))
+        games = Game.objects.filter(
+            Q(first_player=player_id) | Q(second_player=player_id))
     except Game.DoesNotExist:
         raise Http404
-    return render_to_response(template, {'games': games}, context_instance=RequestContext(request))
+    return render_to_response(template, {'games': games},
+                              context_instance=RequestContext(request))
 
 
 @login_required()
@@ -33,7 +39,8 @@ def add(request, template="games/add.html"):
     else:
         form = GameForm()
 
-    return render_to_response(template, {'form': form}, context_instance=RequestContext(request))
+    return render_to_response(template, {'form': form},
+                              context_instance=RequestContext(request))
 
 
 @login_required()
@@ -44,7 +51,8 @@ def show(request, id, template="games/show.html"):
         raise Http404
 
     scores = GameScore.objects.filter(game=game)
-    return render_to_response(template, {'game': game, 'scores': scores}, context_instance=RequestContext(request))
+    return render_to_response(template, {'game': game, 'scores': scores},
+                              context_instance=RequestContext(request))
 
 
 @login_required()
@@ -63,7 +71,8 @@ def edit(request, id, template="games/add.html"):
     else:
         form = GameForm(instance=game)
 
-    return render_to_response(template, {'form': form}, context_instance=RequestContext(request))
+    return render_to_response(template, {'form': form},
+                              context_instance=RequestContext(request))
 
 
 @login_required()
@@ -74,8 +83,9 @@ def wins(request, template="games/wins.html"):
         games = Game.objects.wins(player)
     except Game.DoesNotExist:
         raise Http404
-        
-    return render_to_response(template, {'games': games}, context_instance=RequestContext(request))
+
+    return render_to_response(template, {'games': games},
+                              context_instance=RequestContext(request))
 
 
 @login_required()
@@ -85,18 +95,20 @@ def losts(request, template="games/losts.html"):
         games = Game.objects.losts(player)
     except Game.DoesNotExist:
         raise Http404
-    return render_to_response(template, {'games': games}, context_instance=RequestContext(request))
+    return render_to_response(template, {'games': games},
+                              context_instance=RequestContext(request))
 
 
 @login_required()
 def draws(request, template="games/draws.html"):
     try:
-        player = request.user  
+        player = request.user
         games = Game.objects.draws(player)
     except Game.DoesNotExist:
         raise Http404
 
-    return render_to_response(template, {'games': games}, context_instance=RequestContext(request))
+    return render_to_response(template, {'games': games},
+                              context_instance=RequestContext(request))
 
 
 @login_required()
@@ -112,7 +124,8 @@ def add_score(request, id, template="games/add_score.html"):
         post = request.POST.copy()
         if 'add_score' in request.POST:
             post[
-                'score-TOTAL_FORMS'] = int(post.get('score-TOTAL_FORMS', 0)) + 1
+                'score-TOTAL_FORMS'] = int(post.get(
+                                                'score-TOTAL_FORMS', 0)) + 1
             new_score = AddGameScoreFormset(
                 post, prefix='score', instance=game)
         elif 'submit' in request.POST:
@@ -121,4 +134,5 @@ def add_score(request, id, template="games/add_score.html"):
                 game.save()
                 formset.save()
 
-    return render_to_response(template, {'game': game, 'score': new_score}, context_instance=RequestContext(request))
+    return render_to_response(template, {'game': game, 'score': new_score},
+                              context_instance=RequestContext(request))

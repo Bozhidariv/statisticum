@@ -1,5 +1,4 @@
 """Timezone helper functions.
-
 This module uses pytz when it's available and fallbacks when it isn't.
 """
 
@@ -26,12 +25,8 @@ __all__ = [
 
 ZERO = timedelta(0)
 
-class UTC(tzinfo):
-    """
-UTC implementation taken from Python's docs.
 
-Used only when pytz isn't available.
-"""
+class UTC(tzinfo):
 
     def __repr__(self):
         return "<UTC>"
@@ -45,13 +40,8 @@ Used only when pytz isn't available.
     def dst(self, dt):
         return ZERO
 
-class LocalTimezone(tzinfo):
-    """
-Local time implementation taken from Python's docs.
 
-Used only when pytz isn't available, and most likely inaccurate. If you're
-having trouble with this class, don't waste your time, just install pytz.
-"""
+class LocalTimezone(tzinfo):
 
     def __init__(self):
         # This code is moved in __init__ to execute it as late as possible
@@ -98,23 +88,23 @@ utc = pytz.utc if pytz else UTC()
 # wrap the expression in a function and cache the result.
 _localtime = None
 
+
 def get_default_timezone():
     """
 Returns the default time zone as a tzinfo instance.
-
 This is the time zone defined by settings.TIME_ZONE.
-
 See also :func:`get_current_timezone`.
 """
     global _localtime
     if _localtime is None:
-        if isinstance(settings.TIME_ZONE, six.string_types) and pytz is not None:
+        isInstance = isinstance(settings.TIME_ZONE, six.string_types)
+        if isInstance and pytz is not None:
             _localtime = pytz.timezone(settings.TIME_ZONE)
         else:
             _localtime = LocalTimezone()
     return _localtime
 
-# This function exists for consistency with get_current_timezone_name
+
 def get_default_timezone_name():
     """
 Returns the name of the default time zone.
@@ -123,17 +113,20 @@ Returns the name of the default time zone.
 
 _active = local()
 
+
 def get_current_timezone():
     """
 Returns the currently active time zone as a tzinfo instance.
 """
     return getattr(_active, "value", get_default_timezone())
 
+
 def get_current_timezone_name():
     """
 Returns the name of the currently active time zone.
 """
     return _get_timezone_name(get_current_timezone())
+
 
 def _get_timezone_name(timezone):
     """
@@ -152,10 +145,10 @@ Returns the name of ``timezone``.
 # These functions don't change os.environ['TZ'] and call time.tzset()
 # because it isn't thread safe.
 
+
 def activate(timezone):
     """
 Sets the time zone for the current thread.
-
 The ``timezone`` argument must be an instance of a tzinfo subclass or a
 time zone name. If it is a time zone name, pytz is required.
 """
@@ -166,27 +159,18 @@ time zone name. If it is a time zone name, pytz is required.
     else:
         raise ValueError("Invalid timezone: %r" % timezone)
 
+
 def deactivate():
     """
 Unsets the time zone for the current thread.
-
 Django will then use the time zone defined by settings.TIME_ZONE.
 """
     if hasattr(_active, "value"):
         del _active.value
 
+
 class override(object):
-    """
-Temporarily set the time zone for the current thread.
 
-This is a context manager that uses ``~django.utils.timezone.activate()``
-to set the timezone on entry, and restores the previously active timezone
-on exit.
-
-The ``timezone`` argument must be an instance of a ``tzinfo`` subclass, a
-time zone name, or ``None``. If is it a time zone name, pytz is required.
-If it is ``None``, Django enables the default time zone.
-"""
     def __init__(self, timezone):
         self.timezone = timezone
         self.old_timezone = getattr(_active, 'value', None)
@@ -206,28 +190,11 @@ If it is ``None``, Django enables the default time zone.
 
 # Templates
 
-def template_localtime(value, use_tz=None):
-    """
-Checks if value is a datetime and converts it to local time if necessary.
-
-If use_tz is provided and is not None, that will force the value to
-be converted (or not), overriding the value of settings.USE_TZ.
-
-This function is designed for use by the template engine.
-"""
-    should_convert = (isinstance(value, datetime)
-        and (settings.USE_TZ if use_tz is None else use_tz)
-        and not is_naive(value)
-        and getattr(value, 'convert_to_local_time', True))
-    return localtime(value) if should_convert else value
-
-
 # Utilities
 
 def localtime(value, timezone=None):
     """
 Converts an aware datetime.datetime to local time.
-
 Local time is defined by the current time zone, unless another time zone
 is specified.
 """
@@ -238,6 +205,7 @@ is specified.
         # available for pytz time zones
         value = timezone.normalize(value)
     return value
+
 
 def now():
     """
@@ -252,23 +220,26 @@ Returns an aware or naive datetime.datetime, depending on settings.USE_TZ.
 # By design, these four functions don't perform any checks on their arguments.
 # The caller should ensure that they don't receive an invalid value like None.
 
+
 def is_aware(value):
     """
 Determines if a given datetime.datetime is aware.
-
 The logic is described in Python's docs:
 http://docs.python.org/library/datetime.html#datetime.tzinfo
 """
-    return value.tzinfo is not None and value.tzinfo.utcoffset(value) is not None
+    valueInfo = value.tzinfo is not None
+    utcoffsetValue = value.tzinfo.utcoffset(value) is not None
+    return valueInfo and utcoffsetValue
+
 
 def is_naive(value):
     """
 Determines if a given datetime.datetime is naive.
-
 The logic is described in Python's docs:
 http://docs.python.org/library/datetime.html#datetime.tzinfo
 """
     return value.tzinfo is None or value.tzinfo.utcoffset(value) is None
+
 
 def make_aware(value, timezone):
     """
@@ -280,6 +251,7 @@ Makes a naive datetime.datetime in a given time zone aware.
     else:
         # may be wrong around DST changes
         return value.replace(tzinfo=timezone)
+
 
 def make_naive(value, timezone):
     """
