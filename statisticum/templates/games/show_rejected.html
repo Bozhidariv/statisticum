@@ -1,0 +1,42 @@
+{% extends "layout/default/base.html" %}
+{% load i18n common_tags static %}
+{% block js_content %}
+<script src="{% get_static_prefix %}js/validator.min.js"></script>
+<script src="{% get_static_prefix %}js/bootstrap-select.min.js"></script>
+{% endblock %}
+{% block content %} 
+<div>
+     <div class="game-details">
+  <div class="game-header">
+    <h1 class="game-title">{{ game.title }}</h1>
+    <span class="label label-info">{{game.played_date }}</span>
+    <hr/>
+    <div class="game-details">
+      <div>Category: {{ game.category_name }}</div>
+      <div>
+        <span>
+          Player #1 -
+          <a href="{%  url 'profile_show' game.first_player.id %}">{{ game.first_player }}</a>
+        </span>
+      </div>
+      <div>
+        <span>
+          Player #2 -
+          <a href="{%  url 'profile_show' game.second_player.id %}">{{ game.second_player }}</a>
+        </span>
+      </div>
+      <div>
+        <span>
+          Comment -
+          {{ game.comment}}
+        </span>
+  </div>
+      <div>
+    </div>
+  </div>
+  <hr />
+  
+  {% include "games/score_listing.html" with game=game scores=scores %}
+</div>
+</div>
+{% endblock %}

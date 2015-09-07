@@ -4,16 +4,16 @@
  <div class="tabbable-panel">
     <div class="tabbable-line">
         <ul class="nav nav-tabs ">
-            <li >
+            <li>
                 <a href="{% url 'games_index' %}">Latest Games</a>
             </li>
             <li>
                 <a href="{% url 'page_wins' %}">Wins</a>
             </li>
-            <li>
+            <li class="active">
                  <a href="{% url 'page_losts' %}">Losts</a>
             </li>
-            <li class="active">
+            <li>
                 <a href="{% url 'page_draws' %}">Draws</a>
             </li>
             <li>
@@ -22,10 +22,11 @@
             <li>
                 <a href="{% url 'page_rejected' %}">Rejected</a>
             </li>
+
         </ul>
         <div class="tab-content">
             <h4>Today {% now "F d" %}</h4>
-            {% include "games/listing.html" with games=games %}
+            {% include "games/listing_rejected.html" with games=games %}
         </div>
      </div>
 </div>

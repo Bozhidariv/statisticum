@@ -1,0 +1,25 @@
+{% extends "layout/default/base.html" %}
+{% load i18n common_tags static %}
+{% load i18n static bootstrap  %}
+{% block js_content %}
+<script src="{% get_static_prefix %}js/validator.min.js"></script>
+<script src="{% get_static_prefix %}js/bootstrap-select.min.js"></script>
+{% endblock %}
+{% block content %} 
+<div>
+     {% include "games/details.html" with game=game scores=scores %} 
+</div>
+<div>
+    <div class="col-md-12">
+    {% if form.non_field_errors %}
+        <div class="alert alert-danger alert-error">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+             {{ form.non_field_errors }}
+        </div> 
+    {% endif %}
+    <form method='post' action='{{request.path}}'>
+         {{ form|bootstrap }}
+        <input title='Submit' class="btn btn-success btn-outline" type='submit' name='submit' value='Submit' />
+    </form>
+</div>
+{% endblock %}

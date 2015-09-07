@@ -13,10 +13,10 @@
             <li>
                  <a href="{% url 'page_losts' %}">Losts</a>
             </li>
-            <li class="active">
-                <a href="{% url 'page_draws' %}">Draws</a>
-            </li>
             <li>
+                 <a href="{% url 'page_losts' %}">Losts</a>
+            </li>
+            <li class="active">
                 <a href="{% url 'approvals' %}">For Approval</a>
             </li>
             <li>
@@ -25,7 +25,7 @@
         </ul>
         <div class="tab-content">
             <h4>Today {% now "F d" %}</h4>
-            {% include "games/listing.html" with games=games %}
+            {% include "games/listing_approval.html" with games=games %}
         </div>
      </div>
 </div>

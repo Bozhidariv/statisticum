@@ -7,7 +7,15 @@ class GameForm(ModelForm):
 
     class Meta:
         model = Game
+        exclude = ['approver_status', 'comment']
         fields = "__all__"
+
+
+class GameApproveForm(ModelForm):
+
+    class Meta:
+        model = Game
+        fields = ['approver_status', 'comment']
 
 
 class GameScoreForm(ModelForm):
